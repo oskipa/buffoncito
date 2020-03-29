@@ -4,7 +4,7 @@ A small website that serves investment news.
 
 ## Installation
 
-### Preperation
+### Preparation
 The instructions assume a unix-like environment like Linux or MacOS. Adapt the instructions if you are using Windows. If using Windows, you can use cygwin or the Windows Linux shell.
 
 It is assumed that you have git and python3 installed.
