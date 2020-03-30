@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
+
   {% block title %} 
-    {{ title}}
+    {{ title }}
   {% endblock title %}
 
   {% block content %} 
-    {{ content }} 
+  {% include "content/headline.html" with front_story=front_story %}
   {% endblock content %} 
