@@ -1,0 +1,21 @@
+    <div class="cards row">
+    {% for story in stories %}
+      <div class="card">
+        <div class="card-image">
+          <a href="article.html">
+            <a href="{{story.path}}"><img src="{{story.images.0.url}}" alt="{{story.images.0.name}}"></a>
+        </div>
+        <div class="card-elements">
+          <div class="card-header">
+            <a href="article/{{front_story.path}}" >
+              <h4>{{story.headline}}</h4>
+            </a>
+            <p class="author"> {{story.byline}} | {{ story.date|date:"F j, Y" }} </p>
+          </div>
+          <div class="card-copy">
+            {{story.promo|safe}}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    </div>

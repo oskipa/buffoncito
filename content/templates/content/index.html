@@ -4,6 +4,15 @@
     {{ title }}
   {% endblock title %}
 
-  {% block content %} 
-  {% include "content/headline.html" with front_story=front_story %}
+  {% block header %}
+        <div class="container top-bar">
+          {% include "header.html" %}
+        </div>
+  {% endblock header %}
+
+  {% block content %}   
+        <div class="container content-inner">
+          {% include "content/headline.html" with front_story=front_story %}
+          {% include "content/suggested_stories.html" with stories=stories %}
+        </div>
   {% endblock content %} 

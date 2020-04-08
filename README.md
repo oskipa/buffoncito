@@ -9,29 +9,13 @@ The instructions assume a unix-like environment like Linux or MacOS. Adapt the i
 
 It is assumed that you have git and python3 installed.
 
+
 ### Give execute permission to the scripts
 
 If you are running the script in a unix-like environment, you may need to run the following commands to the scripts to give them execution permissions.
 
-    chmod u+x get_dependencies.sh
-    chmod u+x run.sh
+    chmod u+x install_and_run.sh
 
+Then execute the script.
 
-### Getting code and instaling dependencies
-
-    git clone <repo name>
-
-Enter into the `bufoncito` directory. Now run dependency installation script.
-
-    ./get_dependencies.sh
-
-
-## Running the server
-
-You can run the server in two ways.
-
-    ./run.sh
- 
-Or 
-    python manage.py runserver
-
+    ./install_and_run.sh

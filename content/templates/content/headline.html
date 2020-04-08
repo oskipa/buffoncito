@@ -1,6 +1,16 @@
-<div class="headline">
-  <h2><a href="articles/{{front_story.uuid}}">{{ front_story.headline }}</a></h2>
-  <img src="{{front_story.images.0.url}}" alt="{{front_story.images.0.name}}"></img>
-  <p>{{ front_story.uuid }}</p>
-  <p>{{ front_story.teaser|safe }}</p>
-</div>
+            <div class="main-col">
+              <section class="jumbo-card card">
+                    <div class="card-image">
+                      <a href="{{front_story.path}}"><img src="{{front_story.images.0.url}}" alt="{{front_story.images.0.name}}" class="img-responsive"></a>
+                    </div>
+                    <div class="card-elements">
+                        <div class="card-header">
+                          <a href="{{front_story.path}}"><h3>{{front_story.headline}}</h3></a>
+                          <p class="author"> {{front_story.byline}} | {{ front_story.date|date:"F j, Y" }} </p>
+                        </div>
+                        <div class="card-copy">
+                          {{front_story.promo|safe}}
+                        </div>
+                    </div>
+                </section>
+            </div>

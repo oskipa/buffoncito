@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+  {% block title %} 
+    {{ title }}
+  {% endblock title %}
+  
+  {% block header %}
+        <div class="container top-bar article-top-bar">
+          {% include "header.html" %}
+        </div>
+  {% endblock header %}
+
+  {% block content %}
+    <div class="container article-content-inner">
+      <div class="row">
+          <div class="col-sm-12">
+            {% include "content/header_article.html" with article=article %}
+          </div>  
+      </div>
+    
+      <div class="row">
+          <main class="col-sm-7 col-md-8">
+            {% include "content/full_article.html" with article=article %}
+          </main>
+          <aside class="col-sm-5 col-md-4 p-l">
+            {% include "content/quotes.html" with quotes=quotes links=links %}
+          </aside>
+      </div>
+
+    </div>
+  {% endblock content %} 
+

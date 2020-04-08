@@ -1,0 +1,53 @@
+                <section class="related-tickers">
+                        <div class="block-title">
+                            <hr><h2>Stocks</h2>
+                        </div>
+                        <div id="quote-tickers">
+                        {% for quote in quotes  %}
+                        <div class="ticker-row">
+                            <div>
+                                <span class="image-wrap">
+                                    <a href="">
+                                      <img data-img-src="https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Fart%2Fcompanylogos%2Fmark%2F{{quote.symbol}}.png&amp;w=64&amp;h=64&amp;op=resize" 
+                                        src="https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Fart%2Fcompanylogos%2Fmark%2F{{quote.symbol}}.png&amp;w=64&amp;h=64&amp;op=resize"
+                                        class="img-responsive" alt="{{quote.company_name}} Stock Quote">
+                                    </a>
+                                </span>
+                                <h3>{{ quote.company_name}}</h3>
+                                <h4>
+                                    <span class="ticker">
+                                      <a title="{{ quote.company_name }} Stock Quote" href="#">
+                                        {{quote.exchange}}:<span class="symbol">{{quote.symbol}}</span>
+                                        </a>
+                                    </span>
+                                </h4>
+                                <aside class="price-quote-container">
+                                    <h4 class="current-price">
+                                      ${{quote.current_price}}
+                                    </h4>
+                                    <h4 class="price-change-amount price-neg">
+                                      ${{quote.price_change_amount}}
+                                    </h4>
+                                    <h4 class="price-change-percent price-neg">
+                                      ({{quote.price_change_percent|floatformat:2 }}%)
+                                    </h4>
+                                </aside>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        </div>
+                        <div>
+                          <button id="quote-reshuffle" class="button" >Reshuffle</button>
+                        </div>
+                    </section>
+                    <section class="read-more-section">
+                        <div class="block-title">
+                            <hr><h2>Read More</h2>
+                        </div>
+                        {% for link in links  %}
+                        <ul class="two-line-list">
+                          <li><a href="{{link.path}}">{{link.headline}}</a></li>
+                         </ul>
+                        {% endfor  %}
+                    </section>
+
