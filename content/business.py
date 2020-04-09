@@ -1,6 +1,7 @@
 from content.utils.client import ContentClient
 from dateutil.parser import parse
 from random import shuffle
+from .models import Comment, Settings
 
 class Business:
     "Business class that that processes the request."
@@ -11,13 +12,28 @@ class Business:
 
         content = ContentClient() 
         data = content.latest()
-        slug = '10-promise'
-        story_count = 3
+        slug = self.get_slug() 
+        story_count = self.get_article_count()
         
         result['front_story'] = self.get_headline(data['results'], slug) 
         result['stories'] = self.other_stories(data['results'], result['front_story'].uuid, story_count) 
 
         return result
+
+    def get_slug(self):
+        try:
+            setting = settings.objects.get(setting='slug')
+            return int(setting.value)
+        except:
+            return '10-promise'
+
+    def get_article_count(self):
+        try:
+            setting = settings.objects.get(setting='front_page_stories')
+            return int(setting.value)
+        except:
+            return 3
+
 
     def get_headline(self, data, slug):
         """Get the top story that matches the slug """
@@ -35,13 +51,21 @@ class Business:
         latest = content.latest()
         article = Article(data)
         
-        count = 5
+        count = self.get_link_count()
 
         result['article'] = article 
+        result['uuid'] = article.uuid
         result['quotes'] = self.get_quotes(article) 
         result['links'] = self.other_stories(latest['results'], article.uuid, count) 
-        
+        result['comments'] = Comment.objects.filter(article_id=article.uuid)
         return result
+
+    def get_link_count(self):
+        try:
+            setting = settings.objects.get(setting='article_links')
+            return int(setting.value)
+        except:
+            return 5 
 
     def other_stories(self, data, uuid, count):
         """ Get count number of stories that are not the article""" 

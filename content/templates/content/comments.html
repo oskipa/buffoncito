@@ -1,0 +1,24 @@
+      <div class="col-sm-8">
+        <h3 class="comment-header">Comments</h3>
+        
+        {%for comment in comments%}
+        <div class="comment col-sm-12">
+          {{ comment.content  }}
+        </div>
+        {% endfor %}
+      <div>
+      <div class="col-sm-12">
+        <hr />
+      </div>
+      <div class="comment-form">
+        <form id="commentsForm" action="{% url 'content:comment' %}" method="post" onsubmit="return commentValidate()">
+          {% csrf_token %}
+          <label>Comments should have more than 50 characters</label>
+          <textarea name="comment" class="col-sm-12"></textarea>
+          <div class="col-sm-12">
+            <input type="hidden" name="uuid" value="{{article_uuid}}">
+            <input type="hidden" name="url" value="/{{category}}/{{year}}/{{month}}/{{day}}/{{title}}.aspx">
+            <input  class="btn" type="submit" value="submit">
+          </div>
+        </form>
+      </div>

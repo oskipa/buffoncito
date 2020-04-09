@@ -487,3 +487,29 @@ ul.two-line-list li a {
             margin-right: 0;
         }*/
 }
+
+/************************** comments ********************/
+.comment {
+    -webkit-flex-basis: 15em;
+    -moz-flex-basis: 15em;
+    flex-basis: 15em;
+    -ms-flex-preferred-size: 15em;
+    -webkit-flex-grow: 1;
+    -moz-flex-grow: 1;
+    flex-grow: 1;
+    -ms-flex-positive: 1;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    background-color: #f7f7f7;
+    border-radius: 4px;
+    border: 1px solid #DDD;
+    box-shadow: 0 2px 4px #e6e6e6;
+    cursor: pointer;
+    margin: 5px 10px 20px 0;
+    position: relative;
+}
+
+.comment-header {
+  margin-bottom: 10px;
+}

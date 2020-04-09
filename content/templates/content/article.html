@@ -27,6 +27,12 @@
           </aside>
       </div>
 
+      <div class="row">
+          <div class="col-sm-12">
+            {% include "content/comments.html" with article_uuid=uuid comments=comments category=category year=year month=month day=day title=title %}
+          </div>
+      </div>
     </div>
   {% endblock content %} 
 
+   

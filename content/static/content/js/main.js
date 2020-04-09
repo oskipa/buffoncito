@@ -11,5 +11,17 @@ $(document).ready(function() {
    
     console.log(JSON.stringify(items));
   });
-
 });
+
+function commentValidate(){
+    var comment = $("#commentsForm").find("textarea[name='comment']").val();
+
+    if (comment.trim().length > 50) {
+      return true;
+    } else {
+      alert("Your comment should have more than 50 characters!");
+    }
+
+    return false;
+  }
+

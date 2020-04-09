@@ -11,5 +11,8 @@ fi
 echo ">> Installing dependencies"
 pipenv run pipenv install
 
+echo ">> Migrating the database"
+pipenv run python manage.py migrate
+
 echo ">> Running"
 pipenv run python manage.py runserver
